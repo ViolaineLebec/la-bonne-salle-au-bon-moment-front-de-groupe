@@ -5,7 +5,7 @@ import { ReservationContext } from "../context/ReservationContext";
 
 interface ReservationCardProps {
     reservation: Reservation;
-    onChange:()=>void;
+    onChange?: () => void;
 }
 
 function ReservationCard({ reservation, onChange }: ReservationCardProps) {
@@ -16,13 +16,13 @@ function ReservationCard({ reservation, onChange }: ReservationCardProps) {
 
     useEffect(() => {
         const fetchSalle = async () => {
-            const response = await fetch(`http://localhost:3000/salles/${reservation.salle_id}`);
+            const response = await fetch(`http://localhost:3000/rooms/${reservation.roomId}`);
             const data = await response.json();
             setSalleName(data.name);
         };
 
         fetchSalle();
-    }, [reservation.salle_id]);
+    }, [reservation.roomId]);
 
     function handleModifier() {
         navigate(`/reservations/${reservation.id}`);
@@ -30,7 +30,7 @@ function ReservationCard({ reservation, onChange }: ReservationCardProps) {
 
     function handleSupprimer() {
         deleteReservation(reservation.id);
-        onChange();
+        // onChange();
     }
 
     return (

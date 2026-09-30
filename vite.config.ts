@@ -4,11 +4,19 @@ import { defineConfig } from 'vite'
 
 // https://vite.dev/config/
 export default defineConfig({
+
   plugins: [react(), tailwindcss()],
-  server:{
-    port:3000,
-    watch:{
-      ignored:["**/public/**"]
+  server: {
+    proxy: {
+      '/api': {
+        target: 'https://localhost:3000',
+        changeOrigin: true
+      },
+    }
+    ,
+    port: 3001,
+    watch: {
+      ignored: ["**/public/**"]
     }
   }
 })

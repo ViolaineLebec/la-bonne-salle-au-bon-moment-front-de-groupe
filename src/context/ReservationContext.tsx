@@ -1,20 +1,27 @@
 import { createContext } from "react";
 
 export type Reservation = {
-    id:string,
-    salle_id:string,
-    date_debut:string,
-    date_fin:string,
-    user_id:string
+    id: number,
+    roomId: number,
+    date_debut: string,
+    date_fin: string,
+    userId: number
+}
+
+export type newReservation = {
+    roomId: number,
+    date_debut: string,
+    date_fin: string,
+    userId: number
 }
 
 export interface ReservationContextType extends Reservation {
-    getReservation:(id:string)=>void;
-    postReservation:(reservation:Reservation)=>void;
-    putReservation:(id:string, reservation:Reservation)=>void;
-    deleteReservation:(id:string)=>void;
-    getReservationList:()=>void;
-    reservationList:Reservation[];
+    getReservation: (id: number) => void;
+    postReservation: (reservation: newReservation) => void;
+    patchReservation: (id: number, reservation: Reservation) => void;
+    deleteReservation: (id: number) => void;
+    getReservationList: () => void;
+    reservationList: Reservation[];
 }
 
 export const ReservationContext = createContext<ReservationContextType>(

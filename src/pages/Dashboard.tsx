@@ -59,13 +59,13 @@ function Dashboard() {
                             <Link to="/roomlist">
                                 <button type="submit"
                                     className="rounded-md bg-black px-3 py-2 text-sm border-[#FFFFFF] border-2 font-semibold text-white"
-                                > Liste des salles </button>
+                                > Liste des rooms </button>
                             </Link>
                         </div>
 
 
                         <div>
-                            <Link to="/NewRoom">
+                            <Link to="/newroom">
                                 <button type="submit"
                                     className="rounded-md bg-black px-3 py-2 text-sm border-[#FFFFFF] border-2 font-semibold text-white"
                                 > Créer une salle </button>
@@ -73,8 +73,8 @@ function Dashboard() {
                         </div>
 
                         <Link to="/viewreservation"><button type="submit"
-                                    className="rounded-md bg-black px-3 py-2 text-sm border-[#FFFFFF] border-2 font-semibold text-white"
-                                > Mes réservations </button></Link>
+                            className="rounded-md bg-black px-3 py-2 text-sm border-[#FFFFFF] border-2 font-semibold text-white"
+                        > Mes réservations </button></Link>
 
                     </div>
                 </div>
@@ -86,10 +86,10 @@ function Dashboard() {
                         Espace formateur
                     </h2>
 
-                        <Link to="/viewreservation" >
+                    <Link to="/viewreservation" >
                         <button className="rounded-md bg-black px-3 py-2 text-sm border-[#FFFFFF] border-2 font-semibold text-white">Mes réservations</button>
-                        </Link>
-                
+                    </Link>
+
                 </div>
             )}
 

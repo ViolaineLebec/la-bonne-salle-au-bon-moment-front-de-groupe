@@ -8,13 +8,17 @@ function RoomList() {
     getRoomList();
   }, []);
 
+
   return (
     <>
       <div>
-        <h1>Liste des salles</h1>
+        <h1>Liste des rooms</h1>
+        <button className="flex-1 rounded-md bg-green-600 px-3 py-1.5 text-sm font-medium text-white hover:bg-green-700">
+          <a href="/newroom">Ajouter une salle</a>
+        </button>
         <ul>
           {roomList.map((room) => (
-            <RoomCard key={room.id} salle={room} />
+            <RoomCard key={room.id} room={room} />
           ))}
         </ul>{" "}
       </div>

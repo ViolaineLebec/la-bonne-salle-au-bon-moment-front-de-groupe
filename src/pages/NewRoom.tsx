@@ -1,5 +1,6 @@
 import { useForm } from "react-hook-form";
 import { useState } from "react";
+import { Link } from "react-router";
 
 type RoomFormData = {
     name: string;
@@ -7,12 +8,12 @@ type RoomFormData = {
 };
 
 function NewRoom() {
-    const { register, handleSubmit, formState: { errors, isValid }, reset } = useForm<RoomFormData>({mode: "onChange"});
+    const { register, handleSubmit, formState: { errors, isValid }, reset } = useForm<RoomFormData>({ mode: "onChange" });
     const [success, setSuccess] = useState(false);
-    
+
     async function onSubmit(data: RoomFormData) {
         try {
-            const response = await fetch("http://localhost:3000/salles", {
+            const response = await fetch("http://localhost:3000/rooms", {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json"
@@ -30,7 +31,7 @@ function NewRoom() {
             setTimeout(() => {
                 setSuccess(false);
                 reset();
-            }, 10000);
+            }, 5000);
 
         } catch (error) {
             console.error("Erreur dans la création de salle:", error);
@@ -40,6 +41,8 @@ function NewRoom() {
     return (
         <>
             <h1 className="text-center text-4xl font-bold p-4 mb-8">CREATION DE SALLE</h1>
+            <Link to="/roomlist"><button className="rounded-md bg-black px-3 py-2 text-sm border-[#FFFFFF] border-2 font-semibold text-white">Liste des rooms</button></Link>
+
             <form className="flex flex-col items-center justify-center p-6 space-y-8 min-h-screen p-3" onSubmit={handleSubmit(onSubmit)}>
 
                 <div className="flex flex-col items-center gap-2">
